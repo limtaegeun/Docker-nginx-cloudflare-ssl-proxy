@@ -15,7 +15,7 @@ ENV KEY_PATH /etc/nginx/certs/cert.key
 
 
 
-ADD ../../../sites-available/ssl /etc/nginx/sites-available/ssl
+ADD ./sites-available/ssl /etc/nginx/sites-available/ssl
 RUN sed -ri 's/PROXY_PASS/'${PROXY_PASS}'/' /etc/nginx/sites-available/ssl
 RUN sed -ri 's/SERVER_NAME/'${SERVER_NAME}'/' /etc/nginx/sites-available/ssl
 RUN sed -ri 's/PEM_PATH/'${PEM_PATH}'/' /etc/nginx/sites-available/ssl
