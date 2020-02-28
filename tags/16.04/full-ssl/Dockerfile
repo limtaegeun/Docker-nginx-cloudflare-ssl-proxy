@@ -17,10 +17,10 @@ WORKDIR /etc/nginx
 
 RUN rm -f sites-enabled/default
 ADD ./sites-available/ssl /etc/nginx/sites-available/ssl
-RUN sed -ri 's@PROXY_PASS@'${PROXY_PASS}'@' /etc/nginx/sites-available/ssl
-RUN sed -ri 's@SERVER_NAME@'${SERVER_NAME}'@' /etc/nginx/sites-available/ssl
-RUN sed -ri 's@PEM_PATH@'${PEM_PATH}'@' /etc/nginx/sites-available/ssl
-RUN sed -ri 's@KEY_PATH@'${KEY_PATH}'@' /etc/nginx/sites-available/ssl
+RUN sed -ri 's@PROXY_PASS@'${PROXY_PASS}'@' sites-available/ssl
+RUN sed -ri 's@SERVER_NAME@'${SERVER_NAME}'@' sites-available/ssl
+RUN sed -ri 's@PEM_PATH@'${PEM_PATH}'@' sites-available/ssl
+RUN sed -ri 's@KEY_PATH@'${KEY_PATH}'@' sites-available/ssl
 RUN cp -f sites-available/ssl sites-available/default
 #RUN ln -s /etc/nginx/sites-available/ssl sites-enabled/default
 
