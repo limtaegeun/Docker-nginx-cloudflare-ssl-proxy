@@ -20,6 +20,7 @@ RUN sed -ri 's@PROXY_PASS@'${PROXY_PASS}'@' /etc/nginx/sites-available/ssl
 RUN sed -ri 's@SERVER_NAME@'${SERVER_NAME}'@' /etc/nginx/sites-available/ssl
 RUN sed -ri 's@PEM_PATH@'${PEM_PATH}'@' /etc/nginx/sites-available/ssl
 RUN sed -ri 's@KEY_PATH@'${KEY_PATH}'@' /etc/nginx/sites-available/ssl
+RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/ssl /etc/nginx/sites-enabled/default
 WORKDIR /etc/nginx
 EXPOSE 80 443
