@@ -13,6 +13,7 @@ ENV SERVER_NAME myserver.com
 ENV PEM_PATH /etc/nginx/certs/cert.pem
 ENV KEY_PATH /etc/nginx/certs/cert.key
 
+WORKDIR /etc/nginx
 
 RUN rm /etc/nginx/sites-enabled/default
 ADD ./sites-available/ssl /etc/nginx/sites-available/ssl
@@ -21,8 +22,8 @@ RUN sed -ri 's@SERVER_NAME@'${SERVER_NAME}'@' /etc/nginx/sites-available/ssl
 RUN sed -ri 's@PEM_PATH@'${PEM_PATH}'@' /etc/nginx/sites-available/ssl
 RUN sed -ri 's@KEY_PATH@'${KEY_PATH}'@' /etc/nginx/sites-available/ssl
 
-RUN ln -s /etc/nginx/sites-available/ssl /etc/nginx/sites-enabled/default
-WORKDIR /etc/nginx
+RUN ln -s /etc/nginx/sites-available/ssl sites-enabled/default
+
 EXPOSE 80 443
 
 CMD ["nginx"]
