@@ -15,7 +15,7 @@
 #
 
 upstream docker-nodejs {
-        server nodejs:3000;
+        server CONTAINER_NAME:3000;
 }
 
 server {
@@ -41,7 +41,7 @@ server {
         location / {
                         # First attempt to serve request as file, then
                         # as directory, then fall back to displaying a 404.
-                        proxy_pass PROXY_PASS;
+                        proxy_pass http://docker-nodejs;
                         proxy_http_version 1.1;
                         proxy_set_header Upgrade $http_upgrade;
                         proxy_set_header Connection 'upgrade';
