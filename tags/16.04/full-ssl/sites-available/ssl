@@ -13,6 +13,11 @@
 
 # Default server configuration
 #
+
+upstream docker-nodejs {
+        server nodejs:3000;
+}
+
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
