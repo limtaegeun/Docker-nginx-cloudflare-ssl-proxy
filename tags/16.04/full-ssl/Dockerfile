@@ -9,7 +9,7 @@ RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 ENV PROXY_PASS http://docker-nodejs
-ENV SERVER_NAME docker.havehad.kr
+ENV SERVER_NAME myserver.com
 ENV PEM_PATH /etc/nginx/certs/cert.pem
 ENV KEY_PATH /etc/nginx/certs/cert.key
 
