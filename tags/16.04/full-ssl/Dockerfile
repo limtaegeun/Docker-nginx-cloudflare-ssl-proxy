@@ -19,5 +19,5 @@ ADD ./sites-available/ssl /etc/nginx/sites-available/ssl
 ADD ./docker-entrypoint.sh /etc/nginx/docker-entrypoint.sh
 RUN chmod 777 /etc/nginx/docker-entrypoint.sh
 EXPOSE 80 443
-ENTRYPOINT ./docker-entrypoint.sh ${CONTAINER_NAME} ${SERVER_NAME} ${PEM_PATH} ${KEY_PATH}
+ENTRYPOINT ["/etc/nginx/docker-entrypoint.sh"]
 CMD ["nginx"]
