@@ -12,7 +12,7 @@ This help to use Cloudflare full SSL with Nginx and proxy to port of web applica
 
 It is licensed under MIT license and it made by havehad inc. and contributors
 
-![havehad](https://cdn.havehad.kr/image/logo/hhlogo.png =100x)
+![havehad|100x100,20%](https://cdn.havehad.kr/image/logo/hhlogo.png)
 
 
 
