@@ -88,5 +88,5 @@ imori333/nginx-cloudflare-ssl-proxy
 
 [MIT license](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2020-present, lim taegeun
+Copyright (c) 2020-present, limtaegeun
 
