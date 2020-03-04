@@ -15,7 +15,7 @@
 #
 
 upstream docker-nodejs {
-        server CONTAINER_NAME:3000;
+        server PROXY_PASS;
 }
 
 server {

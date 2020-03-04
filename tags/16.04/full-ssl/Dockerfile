@@ -8,7 +8,7 @@ RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
-ENV CONTAINER_NAME nodejs
+ENV PROXY_PASS localhost:3000
 ENV SERVER_NAME myserver.com
 ENV PEM_PATH /etc/nginx/certs/cert.pem
 ENV KEY_PATH /etc/nginx/certs/cert.key
