@@ -37,7 +37,21 @@ And save or copy .pem and .key files in your server
 
 >  Assume .pem and .key file name is cert.pem and cert.key
 
-### 2. Create Docker network
+
+
+### 2. a) Run Nginx
+
+> run WAS using port 3000 
+
+```shell
+$ docker run -d -v /some/certs:/etc/nginx/certs --name nginx-ssl --network host -e SERVER_NAME=your.domain.com imori333/nginx-cloudflare-ssl-proxy
+```
+
+
+
+### 2. b) when run WAS by container like Docker
+
+#### Create Docker network
 
 ```shell
 $ docker network create nginx-net
@@ -45,7 +59,9 @@ $ docker network create nginx-net
 
 
 
-### 3. Run web application server by docker image 
+#### Run web application server by container 
+
+> Assume WAS use port 3000 
 
 ```shell
 $ docker run -d -v config:/usr/src/app/config --name nodejs --network nginx-net your-was
@@ -53,17 +69,17 @@ $ docker run -d -v config:/usr/src/app/config --name nodejs --network nginx-net 
 
 
 
-### 4. Run nginx-cloudflare-ssl-proxy
+#### Run nginx-cloudflare-ssl-proxy
 
 ```shell
-$ docker run -v -d -v /some/certs:/etc/nginx/certs --name nginx-ssl -p 443:443 -p 80:80 --network nginx-net -e SERVER_NAME=your.domain.com imori333/nginx-cloudflare-ssl-proxy
+$ docker run -d -v /some/certs:/etc/nginx/certs --name nginx-ssl -p 443:443 -p 80:80 --network nginx-net -e PROXY_PASS=nodejs:3000 -e SERVER_NAME=your.domain.com imori333/nginx-cloudflare-ssl-proxy
 ```
 
 
 
 ## Using environment variables
 
-- CONTAINER_NAME  : your app container name 
+- PROXY_PASS  : your proxy pass url 
 - SERVER_NAME : your domain name
 - PEM_PATH : .pem file path 
 - KEY_PATH : private key file path 
@@ -88,5 +104,5 @@ imori333/nginx-cloudflare-ssl-proxy
 
 [MIT license](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2020-present, limtaegeun
+Copyright (c) 2020-present, havehad inc.
 
