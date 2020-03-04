@@ -14,7 +14,7 @@
 # Default server configuration
 #
 
-upstream docker-nodejs {
+upstream docker-proxy {
         server PROXY_PASS;
 }
 
@@ -41,7 +41,7 @@ server {
         location / {
                         # First attempt to serve request as file, then
                         # as directory, then fall back to displaying a 404.
-                        proxy_pass http://docker-nodejs;
+                        proxy_pass http://docker-proxy;
                         proxy_http_version 1.1;
                         proxy_set_header Upgrade $http_upgrade;
                         proxy_set_header Connection 'upgrade';
