@@ -1,10 +1,11 @@
-# Supported tags
+# Docker-nginx-cloudflare-ssl-proxy
+## Supported tags
 
 - `latest`, `1.10.3-ubuntu`
 
 
 
-# What is nginx-cloudflare-ssl-proxy
+## What is nginx-cloudflare-ssl-proxy
 
 This docker image is an open source serve proxy wep application server (WAS) for HTTPS using clouldflare full SSL
 
@@ -16,9 +17,9 @@ It is licensed under MIT license and it made by havehad inc. and contributors
 
 
 
-# How to use this image
+## How to use this image
 
-## Quick start
+### Quick start
 
 > Preparation
 >
@@ -27,7 +28,7 @@ It is licensed under MIT license and it made by havehad inc. and contributors
 
 
 
-### 1. Create your origin certificate and private key
+#### 1. Create your origin certificate and private key
 
 See here
 
@@ -39,7 +40,7 @@ And save or copy .pem and .key files in your server
 
 
 
-### 2. a) Run Nginx
+#### 2. a) Run Nginx
 
 > run WAS using port 3000 
 
@@ -49,7 +50,7 @@ $ docker run -d -v /some/certs:/etc/nginx/certs --name nginx-ssl --network host 
 
 
 
-### 2. b) when run WAS by container like Docker
+#### 2. b) when run WAS by container like Docker
 
 #### Create Docker network
 
@@ -59,7 +60,7 @@ $ docker network create nginx-net
 
 
 
-#### Run web application server by container 
+##### Run web application server by container 
 
 > Assume WAS use port 3000 
 
@@ -69,7 +70,7 @@ $ docker run -d -v config:/usr/src/app/config --name nodejs --network nginx-net 
 
 
 
-#### Run nginx-cloudflare-ssl-proxy
+##### Run nginx-cloudflare-ssl-proxy
 
 ```shell
 $ docker run -d -v /some/certs:/etc/nginx/certs --name nginx-ssl -p 443:443 -p 80:80 --network nginx-net -e PROXY_PASS=nodejs:3000 -e SERVER_NAME=your.domain.com imori333/nginx-cloudflare-ssl-proxy
@@ -77,7 +78,7 @@ $ docker run -d -v /some/certs:/etc/nginx/certs --name nginx-ssl -p 443:443 -p 8
 
 
 
-## Using environment variables
+### Using environment variables
 
 - PROXY_PASS  : your proxy pass url - default : localhost:3000
 - SERVER_NAME : your domain name - default : myserver.com
@@ -100,7 +101,7 @@ imori333/nginx-cloudflare-ssl-proxy
 
 
 
-# License
+## License
 
 [MIT license](https://opensource.org/licenses/MIT)
 
