@@ -79,10 +79,10 @@ $ docker run -d -v /some/certs:/etc/nginx/certs --name nginx-ssl -p 443:443 -p 8
 
 ## Using environment variables
 
-- PROXY_PASS  : your proxy pass url 
-- SERVER_NAME : your domain name
-- PEM_PATH : .pem file path 
-- KEY_PATH : private key file path 
+- PROXY_PASS  : your proxy pass url - default : localhost:3000
+- SERVER_NAME : your domain name - default : myserver.com
+- PEM_PATH : .pem file path   - default : /etc/nginx/certs/cert.pem
+- KEY_PATH : private key file path - default : /etc/nginx/certs/cert.key
 
 
 
