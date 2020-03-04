@@ -91,7 +91,7 @@ $ docker run -d -v /some/certs:/etc/nginx/certs --name nginx-ssl -p 443:443 -p 8
 when your certificate and private key name and path is different 
 
 ```shell
-$ docker run -v -d -v /some/certs:/etc/nginx/other --name nginx-ssl \ 
+$ docker run -d -v /some/certs:/etc/nginx/other --name nginx-ssl \ 
 -p 443:443 -p 80:80 --network nginx-net -e SERVER_NAME=your.domain.com\
 -e PEM_PATH=/etc/nginx/other/mycert.pem \
 -e KEY_PATH=/etc/nginx/other/mycert.key \
