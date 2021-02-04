@@ -11,9 +11,7 @@ This docker image is an open source serve proxy wep application server (WAS) for
 
 This help to use Cloudflare full SSL with Nginx and proxy to port of web application server in Production environment 
 
-It is licensed under MIT license and it made by havehad inc. and contributors
-
-![havehad|100x100,20%](https://cdn.havehad.kr/image/logo/hhlogo.png)
+It is licensed under MIT license and it made by limtaegeun. and contributors
 
 
 
@@ -105,5 +103,5 @@ imori333/nginx-cloudflare-ssl-proxy
 
 [MIT license](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2020-present, havehad inc.
+Copyright (c) 2020-present, limtaegeun.
 
